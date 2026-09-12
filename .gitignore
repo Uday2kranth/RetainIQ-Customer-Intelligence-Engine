@@ -9,18 +9,15 @@ token.json
 *.env
 
 # 2. Guidelines, Temporary & Working Documents
-gudielines/
 study_pack/
-*.docx
 *.pptx
-*.pdf
 ~*.tmp
 ~$*.docx
 
 
 # 3. Heavy Media & Videos
 *.mp4
-community servcies/
+
 
 # 4. Python Environment & Bytecode
 __pycache__/
