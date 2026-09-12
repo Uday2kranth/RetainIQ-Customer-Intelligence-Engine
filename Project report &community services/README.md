@@ -1,189 +1,190 @@
-<div align="center" style="border: 2px solid #ccc; padding: 20px; border-radius: 12px; width: 80%; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.15);">
-    <img
-        width="180"
-        height="220"
-        alt="Logo - SURE ProEd"
-        src="https://github.com/user-attachments/assets/88fa5098-24b1-4ece-87df-95eb920ea721"
-        style="border-radius: 10px;"
-    />
+# RetainIQ: Customer Intelligence & Automated Churn Prevention Engine
 
-  <h1 align="center" style="font-family: Arial; font-weight: 600; margin-top: 15px;">SURE ProEd (formerly SURE Trust) 
-      </h1>
-<h2 style="color: #2b6cb0; font-family: Arial;">Skill Upgradation for Rural youth Empowerment Trust</h2>
-</div>
+> **Autonomous End-to-End MLOps Pipeline, Behavioral RFM Loyalty Segmentation, and Real-Time Retention Operations.**
 
-<hr style="border: 0; border-top: 1px solid #ccc; width: 80%;" />
+[![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![Scikit-Learn](https://img.shields.io/badge/ML-Random%20Forest%20(81.8%25%20Acc%20%7C%200.86%20AUC)-orange?logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
+[![Apache Airflow](https://img.shields.io/badge/Orchestration-Apache%20Airflow%202.x-teal?logo=apacheairflow&logoColor=white)](https://airflow.apache.org/)
+[![Streamlit](https://img.shields.io/badge/Operations%20Console-Streamlit-red?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![Power BI](https://img.shields.io/badge/Control%20Tower-Microsoft%20Power%20BI-yellow?logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-<div style="padding: 20px; border: 2px solid #ddd; border-radius: 12px; width: 90%; margin: auto; background: #fafafa; font-family: Arial;">
-
-<h2 style = "color:#333;"> Student Details </h2>
-<div align = "left" style ="margin: 20px; font-size: 16px;">
-    <p><strong>Name:</strong> <!--- Add your name---> </p>
-    <p><strong>Email ID:</strong> <!--- Add your mail id ---> </p>
-    <p><strong>College Name:</strong> <!--- Add your college name---> </p>
-    <p><strong>Branch/Specialization :</strong> <!--- Add your branch name---> </p>
-    <p><strong>College ID:</strong> <!--- Add your college ID---> </p>
-</div>
-
-<hr style="border: 0; border-top: 1px solid #ccc; width: 80%;" />
-
-<h2 style="color:#333;"> Course Details </h2>
-<div align="left" style="margin: 20px; font-size: 16px;">
-    <p><strong>Course Opted:</strong> <!--- Add your course name---> </p>
-    <p><strong>Instructor Name:</strong> <!--- Add your instructor name---> </p>
-</div>
-<div align="left" style="margin: 20px; font-size: 16px;">
-    <p><strong>Duration:</strong> <!--- Durations in months---> </p>
-
-<hr style="border: 0; border-top: 1px solid #ccc; width: 80%;" />
-
-<h2 style="color:#333;"> Trainer Details </h2>
-<div align="left" style="margin: 20px; font-size: 16px;">
-
-<p><strong>Trainer Name:</strong> <!–– Add trainer name ––></p>
-<p><strong>Trainer Email ID:</strong> <!–– Add trainer email ––></p>
-<p><strong>Trainer Designation:</strong> <!–– Add designation along with company––></p>
-
-<hr style="border: 0; border-top: 1px solid #ccc; width: 80%;" />
-
-## **Table of Contents**
-- [Course Learning](#course-learning-to-be-edited-by-student)
-- [Projects Completed](#projects-completed)
-- [Project Introduction](#project-introduction)
-- [Technologies Used](#technologies-used)
-- [Roles and Responsibilities](#roles-and-responsibilities)
-- [Project Report](#project-report)
-- [Learnings from LST & SST](#learnings-from-lst--sst)
-- [Community Services](#community-services)
-- [Certificate](#certificate)
-- [Acknowledgments](#acknowledgments)
-
-<hr style="border: 0; border-top: 1px solid #ccc; width: 80%;" />
-
-
-## Overall Learning 
-
-> _This is a placeholder. Replace the text below with your personal learning summary._
-During this course, I learned the fundamentals of web development and project design.
-I gained hands-on experience with HTML, CSS, JavaScript and strengthened my skills in 
-problem-solving, teamwork, documentation, and delivering real-world project solutions.
-
-
-<h2 style="color:#333;"> Projects Completed </h2>
-<div align="left" style="margin: 20px; font-size: 16px;">
-
-<p><strong><a href="#project1">Project 1:</a></strong> &lt;!-- Add project title → --&gt;</p>
-
-<p><strong><a href="#project2">Project 2:</a></strong> &lt;!-- Add project title → --&gt;</p>
-
-<p><strong><a href="#project3">Project 3:</a></strong> &lt;!-- Add project title → --&gt;</p>
-
-<p><em>(You can add more projects as needed)</em></p>
-
-</div>
-
-<!-- Project 1 -->
-<h3 id="project1">Project 1: <!-- Add Project Title --></h3>
-<p>
-  This project involved designing and developing a basic functional module using the core concepts taught in the course.
-  It focused on understanding requirements, creating structured code, and implementing key features.
-</p>
-<p>
-  <a href="<!-- Add link to full report -->" target="_blank"><strong>→ View Full Project Report</strong></a>
-</p>
-
-<!-- Project 2 -->
-<h3 id="project2">Project 2: <!-- Add Project Title --></h3>
-<p>
-  This project expanded on intermediate concepts and required integrating multiple components to build a more complete solution.
-  It enhanced understanding of UI/UX design, modular coding, and testing.
-</p>
-<p>
-  <a href="<!-- Add link to full report -->" target="_blank"><strong>→ View Full Project Report</strong></a>
-</p>
-
-<!-- Project 3 -->
-<h3 id="project3">Project 3: <!-- Add Project Title --></h3>
-<p>
-  The final project showcased the practical application of all concepts learned throughout the course.  
-  It required planning, building, optimizing, and documenting a complete real-world project.
-</p>
-<p>
-  <a href="<!-- Add link to full report -->" target="_blank"><strong>→ View Full Project Report</strong></a>
-</p>
-
-<hr style="height:1px; border-top:1px solid #ccc; width:80%;" />
-
-
-## **References**
-
-- [Wikipedia](https://wikipedia.com)
-<!--you can add refrences over here in same syntax as above -->
 ---
 
+## 🎯 Executive Overview
 
-## **Learnings from LST and SST**
+In digital retail and e-commerce, retaining existing customers is vastly more profitable than acquiring new ones:
+* **The 5x–7x Economic Reality**: Acquiring a new customer costs **5 to 7 times more** than retaining an existing one. A modest 5% increase in customer retention can boost corporate profits by **25% to 95%**.
+* **The Industry Bottleneck**: Traditional enterprise systems address customer churn reactively—relying on delayed monthly or weekly spreadsheets that discover customer attrition only after revenue has already evaporated.
+* **The RetainIQ Solution**: RetainIQ transitions businesses from *reactive churn discovery* to **autonomous, daily retention intervention**. The engine ingests fresh transactions into SQL, computes behavioral RFM loyalty scores, scores continuous attrition risk via a tuned Random Forest model, and dispatches automated priority action playbooks to sales managers within 24 hours.
 
-<!-- add your experiences over here -->
-> _This is a placeholder. Replace the text below with your personal learning from LST and SST sessions summary._
-LST and SST sessions helped me....
+| Dimension | Traditional Legacy Approach | RetainIQ Modern Engine |
+| :--- | :--- | :--- |
+| **Ingestion** | Monthly manual CSV dumps prone to human delay. | Autonomous daily batch ingestion into relational SQL. |
+| **Customer Scoring** | Static spreadsheets with zero behavioral weighting. | Statistical RFM Quintile Modeling (11 loyalty personas). |
+| **Churn Prediction** | Reactive: Discovered after revenue loss. | Proactive: Tuned Random Forest (81.8% Acc, 0.86 ROC-AUC). |
+| **Decision Cutoff** | Arbitrary 50% cutoff (high false-alarm rate). | High-ROI $\ge 80\%$ Crisis Threshold isolating top accounts. |
+| **Alerting** | Ad-hoc emails sent manually days or weeks later. | Automated priority HTML report dispatched via Gmail OAuth within 24h. |
+| **Orchestration** | Brittle cron scripts with no retry logic. | Apache Airflow 2.x TaskFlow DAG with exponential backoff. |
+| **BI Reporting** | Heavy database queries causing table locks. | Decoupled CSV analytical data mart (sub-second refresh). |
+
 ---
 
-## **Community Services**
+## 🏗️ System Architecture & Pipeline Flow
 
-<!-- add descreption in your own words -->
+RetainIQ executes an automated 5-stage sequential workflow engineered for high throughput and complete task isolation:
 
-During my internship period, I participated in multiple community-oriented activities .....<!-- add descreption in your own words -->
+```mermaid
+flowchart LR
+    A[1. SQL Ingestion\nSQLAlchemy] --> B[2. RFM Segmentation\nPandas Quintiles]
+    B --> C[3. ML Inference\nRandom Forest 81.8%]
+    C --> D[4. Gmail OAuth Alert\nDaily HTML Dispatch]
+    D --> E[5. Power BI Sync\nDecoupled CSV Marts]
+    
+    subgraph Analytics & Interfaces
+    E --> F[Streamlit Operations Console]
+    E --> G[Power BI Control Tower]
+    end
+```
 
-### **Activities Involved**
-<!-- add the location where you given -->
-- **Blood Donation** – Donated blood and supported basic assistance tasks during the camp.
+1. **Task 1: SQL Data Ingestion (`src/etl/ingest.py`)**:
+   Pulls raw e-commerce customer transaction records, enforces schema constraints, and maintains relational integrity for 5,630 baseline accounts.
+2. **Task 2: RFM Feature Engineering (`src/etl/feature_engineering.py`)**:
+   Calculates statistical quintiles across **Recency** (days since last order), **Frequency** (lifetime order count), and **Monetary** (cashback/spend). Categorizes customers into 11 strategic loyalty personas (*Champions, Loyal Customers, Potential Loyalists, At Risk, Can't Lose Them, Hibernating, etc.*). Imputes missing numerical values with medians and applies one-hot encoding.
+3. **Task 3: Machine Learning Inference (`src/ml/inference.py`)**:
+   Loads the trained Random Forest artifact (`models/churn_model.pkl`), evaluates continuous risk probabilities (`predict_proba` from 0% to 100%), and assigns dynamic risk tiers (High $\ge 80\%$, Medium $50-79\%$, Low $<50\%$).
+4. **Task 4: High-Risk Alert Dispatch (`src/alerts/gmail_alert.py`)**:
+   Filters accounts in the critical $\ge 80\%$ crisis tier (339 accounts), formats a prioritized HTML operational briefing with direct action playbooks, and dispatches it via Google Gmail OAuth 2.0 API with full delivery audit logging.
+5. **Task 5: Decoupled BI Export (`run_pipeline.py`)**:
+   Exports clean, pre-aggregated analytical SQL views (`v_daily_action_queue.csv`, `v_executive_kpis.csv`, `v_churn_drivers.csv`) to `data/processed/`. Power BI Desktop and Streamlit reload these static files in under 1 second without database locks.
+
+---
+
+## 📊 Proven Dataset Metrics & Power BI Findings
+
+All findings are verified and reproducible across the baseline dataset of **5,630 customer accounts**:
+
+* **Portfolio Health**:
+  * **5,630 Total Customers Monitored** in SQL database.
+  * **86.31% Portfolio Retention Rate** (13.69% historical attrition).
+  * **339 High-Risk Accounts** strictly exceeding the $\ge 80\%$ churn risk threshold.
+  * **$54,300+ in Direct Cashback Incentives at Immediate Risk** within the 339 crisis accounts alone.
+* **Model Diagnostic Power**:
+  * **81.8% Classification Accuracy** on hold-out validation splits.
+  * **0.86 ROC-AUC Score**, proving strong ranking fidelity to separate leaving customers from loyal ones.
+* **Root-Cause Attrition Insights**:
+  * **The Month 0–6 Onboarding Cliff**: Customer churn risk spikes above **40%** in the first 6 months before stabilizing below 10%–15% once accounts pass month 10.
+  * **Product Category Risk**: *Grocery* leads category attrition at **16.0%**, followed by *Laptop & Accessory* (**13.9%**), *Fashion* (**13.5%**), and *Mobile Phone* (**11.4%**).
+
+---
+
+## 💻 Streamlit Operations Console (`app.py`)
+
+For non-technical business managers, RetainIQ includes an interactive web application:
+* **Tab 1 (Executive Overview)**: Portfolio KPI cards and interactive Plotly diagnostics matching the Power BI Control Tower.
+* **Tab 2 (High-Priority Action Queue)**: Widescreen view of high-risk customers with dynamic risk threshold sliders ($\ge 80\%$), search filters, action playbooks, and a 1-click email dispatch button.
+* **Tab 3 (Airflow Automation & Scheduler)**: Real background daemon monitoring the system clock, interactive 1-click batch simulation (+35 incoming accounts), and deterministic cron triggers (`0 6 * * *`).
+* **Tab 4 (Alert Inspector)**: Responsive HTML email preview of the actual alert dispatched to stakeholders, paired with an interactive recipient manager (supporting manual editing and bulk employee CSV upload).
+
+---
+
+## 🚀 Quick Start & Installation
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Uday2kranth/RetainIQ-Customer-Intelligence-Engine.git
+cd RetainIQ-Customer-Intelligence-Engine
+```
+
+### 2. Set Up Virtual Environment & Dependencies
+```bash
+# Create virtual environment
+python -m venv .venv
+
+# Activate environment (Windows PowerShell)
+.\.venv\Scripts\activate
+
+# Install all production dependencies
+pip install -r requirements.txt
+```
+
+### 3. Launch the Streamlit Operations Console
+```bash
+python -m streamlit run app.py --server.port 8501
+```
+*Access in your browser at `http://localhost:8501`.*
+
+---
+
+## ⚙️ Running the Master Pipeline (Standalone CLI)
+
+If you prefer headless command-line execution without Streamlit:
+
+```bash
+# 1. Standard Daily Run (Baseline 5,630 Accounts)
+python run_pipeline.py
+
+# 2. Incremental Batch Simulation (+35 Incoming Accounts for Live Power BI Refresh)
+python run_pipeline.py --simulate
+
+# 3. Instant Reset Switch (Wipes Simulation & Restores 5,630 Baseline)
+python run_pipeline.py --reset
+```
+
+### 🧪 Automated Test Suite
+Verify all 5 pipeline layers with automated integration tests:
+```bash
+pytest tests/test_pipeline_e2e.py -v
+```
+*(7 passed with 100% pass rate in ~4.1 seconds).*
+
+---
+
+## 📂 Project Repository Structure
+
+```
+RetainIQ-Customer-Intelligence-Engine/
+├── .streamlit/                # Streamlit theme configuration
+├── app.py                     # Streamlit Executive Operations Console
+├── dags/
+│   └── retainiq_pipeline_dag.py # Apache Airflow 2.x TaskFlow DAG
+├── data/
+│   ├── raw/                   # Immutable raw Kaggle e-commerce transactions
+│   └── processed/             # Decoupled analytical CSV & Parquet marts
+├── docs/                      # Technical documentation & Power BI guides
+├── models/
+│   ├── churn_model.pkl        # Tuned Random Forest model artifact
+│   └── model_metrics.json     # Model evaluation benchmarks
+├── powerbi/
+│   ├── RetainIQ_Control_Tower.pbix # Single-pane-of-glass Power BI dashboard
+│   ├── dax_measures.dax       # Core DAX business formulas
+│   └── powerbi_views.sql      # Analytical SQL reporting views
+├── scripts/
+│   ├── schedule_demo.py       # Standalone OS clock background scheduler daemon
+│   ├── build_html_study_pack.py
+│   └── build_spa_study_app.py
+├── src/
+│   ├── alerts/gmail_alert.py  # Google Gmail OAuth 2.0 alerting engine
+│   ├── db/connection.py       # SQLAlchemy database engine
+│   ├── db/schema.py           # Relational schema definition
+│   ├── etl/ingest.py          # Data ingestion & batch simulation
+│   ├── etl/feature_engineering.py # RFM quintiles & cleaning
+│   └── ml/inference.py        # Model scoring & risk prediction
+├── study_pack/                # Standalone mobile study application
+├── tests/
+│   └── test_pipeline_e2e.py   # Automated end-to-end integration test suite
+├── .gitignore                 # Enterprise credentials & media protection
+├── requirements.txt           # Verified package dependencies
+└── README.md                  # Project documentation
+```
+
+---
+
+## 👤 Author
+
+* **Pendyala Uday Kranth** — *Data Analytics & MLOps Engineer*
+* **GitHub**: [@Uday2kranth](https://github.com/Uday2kranth)
   
- <!-- add the location where you have panted -->
-- **Tree Plantation Drive** – Participated by planting trees and contributing to environmental improvement.
 
-  <!-- add the location where you helped -->
-- **Helping Elder Citizens** – Assisted two elderly individuals with simple daily tasks and provided support where needed. 
 
-<!-- you can write impacts according to your experience in your words-->
-
-### **Impact / Contribution**
-
-- Helped create a supportive environment during the blood donation camp. <!-- add the location where you given -->
-- Actively participated in promoting a greener and cleaner surroundings.
-- Offered personal assistance to elder citizens, strengthening community bonds.
-- Improved skills in communication, coordination, and social responsibility.
-
-### **Photos**
-
-<!-- add your photos below -->
-<!-- change url below with your image urls (inside  src='')-->
-
-- These are just placeholder (sample) images <!-- remove this line -->
-
-<div align="center">
-<img src="https://media.licdn.com/dms/image/v2/D561FAQEJNBia4UCa5w/feedshare-document-images_800/B56Zm5b6SJJkAg-/1/1759752731458?e=1766016000&v=beta&t=7GABy91-0FNbir386wPdJ-Grr385JzS3tR5LQIw1CWg" alt="Community Service Photo 1" width="30%">
-<img src="https://media.licdn.com/dms/image/v2/D561FAQEJNBia4UCa5w/feedshare-document-images_800/B56Zm5b6SJJkAg-/2/1759752731458?e=1766016000&v=beta&t=6RfJQWWqlQUPcCvDnQNW7kR6yf7w-wPDsIPxum409ck" alt="Community Service Photo 2" width="30%">
-<img src="https://media.licdn.com/dms/image/v2/D561FAQEJNBia4UCa5w/feedshare-document-images_800/B56Zm5b6SJJkAg-/3/1759752731458?e=1766016000&v=beta&t=yWaunKdRdLUKBLbmM3UjRYYz-_GSCfWEQ3_R7dW0xLM" alt="Community Service Photo 3" width="30%">
-</div>
-
----
-
-## **Certificate**
-
-The internship certificate serves as an official acknowledgment of the successful completion of my training period. It will be issued by the organization upon fulfilling all required tasks and meeting the performance expectations of the program. The certificate validates the skills, experience, and contributions made during the internship.
-
-<!-- add your certificate image url below (inside src='')-->
-
-<p align="center">
-<img src="https://github.com/Lord-Rahul/Practice-Programs/blob/main/react/1/public/Gemini_Generated_Image_a6w8rda6w8rda6w8.png?raw=true" alt="Internship Certificate" width="80%">
-</p>
-
----
-
-## **Acknowledgments**
-
-<!-- you can add Acknowledgments over here in same syntax as below . eg trainer name , company name , role etc -->
-
-- [Prof. Radhakumari Challa](https://www.linkedin.com/in/prof-radhakumari-challa-a3850219b) , Executive Director and Founder - [SURE Trust](https://www.suretrustforruralyouth.com/)
 
