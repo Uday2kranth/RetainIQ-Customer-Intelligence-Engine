@@ -39,7 +39,10 @@ data/*.info
 *.log
 data/*.log
 
-# 6. Operating System Artifacts
+# 6. Operating System Artifacts & Local Tooling
 .DS_Store
 Thumbs.db
 desktop.ini
+graphify-out/
+.gitnexus/
+
