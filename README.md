@@ -186,7 +186,5 @@ RetainIQ-Customer-Intelligence-Engine/
 * **GitHub**: [@Uday2kranth](https://github.com/Uday2kranth)
   
 
----
 
-## 📜 License
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
