@@ -130,9 +130,9 @@ During my internship period, I participated in multiple community-oriented activ
 <!-- change url below with your image urls (inside  src='')-->
 
 <div align="center">
-<img width="400" height="600" alt="image" src="https://github.com/user-attachments/assets/343c74a1-2fd1-43c3-8186-bc7257d616f3" alt="Community Service Photo 1" width="10%">
-<img width="400" height="600" alt="image" src="https://github.com/user-attachments/assets/c9afde86-84e3-438d-85c5-bc056b60b354"  alt="Community Service Photo 2" width="30%">
-<img width="400" height="600" alt="image" src="https://github.com/user-attachments/assets/de95e5b8-9cf1-419e-b13d-c7a0d9f06a23" alt="Community Service Photo 3" width="30%">
+<img src="community%20servcies/IMG_20260911_192001.jpg.jpeg" alt="Community Service - Blood Donation" width="31%">
+<img src="community%20servcies/IMG_20260911_191914.jpg.jpeg" alt="Community Service - Tree Plantation" width="31%">
+<img src="community%20servcies/IMG_20260911_192033.jpg.jpeg" alt="Community Service - Helping Elder Citizens" width="31%">
 </div>
 
 ---
