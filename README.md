@@ -66,7 +66,6 @@
 
 > _This is a placeholder. Replace the text below with your personal learning summary._
 During this course, I learned the core fundamentals of data analytics and how to approach problems from a practical business perspective. Before joining the course, I had an individual understanding of Python and SQL, but through this program, I learned how to integrate SQL and Python together to implement real business requirements directly in code. 
-
 I was also fortunate enough to learn key frameworks used not just for data analytics, but also for machine learning. On top of that, learning Power BI, Excel, and Databricks added practical depth to my skillset, and I was able to implement everything I learned directly into my final capstone project. Overall, this journey helped me strengthen my understanding of the business side of data analytics, build reliable problem-solving solutions, maintain thorough documentation, and deliver end-to-end, real-world project outcomes.
 
 <h2 style="color:#333;"> Projects Completed </h2>
