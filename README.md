@@ -53,7 +53,7 @@
 - [Project Introduction](#project-introduction)
 - [Technologies Used](#technologies-used)
 - [Roles and Responsibilities](#roles-and-responsibilities)
-- [Project Report](#project-report)
+- [Project Report](Project%20report%20&community%20services/SURE%20Trust%20project%20document.pdf)
 - [Learnings from LST & SST](#learnings-from-lst--sst)
 - [Community Services](#community-services)
 - [Certificate](#certificate)
@@ -82,7 +82,7 @@ I was also fortunate enough to learn key frameworks used not just for data analy
 This project is an end-to-end customer intelligence and churn prevention system designed for e-commerce businesses. The project integrates automated SQL and Python ETL pipelines, RFM behavioral feature engineering, machine learning models (Random Forest &amp; XGBoost) to predict at-risk customers, automated retention email alerts, an interactive Streamlit operations dashboard, and an executive Power BI Control Tower for strategic decision-making.
 </p>
 <p>
-  <a href="https://github.com/sure-trust/PENDYALA-UDAY-KRANTH-g1-data-analytics/blob/05c5bade6ad87afd75eb2e410e8d674dad40e936/Course%20report/SURE%20Trust%20project%20document.pdf" target="_blank"><strong>→ View Full Project Report</strong></a>
+  <a href="Project%20report%20&community%20services/SURE%20Trust%20project%20document.pdf" target="_blank"><strong>→ View Full Project Report</strong></a>
 </p>
 
 
