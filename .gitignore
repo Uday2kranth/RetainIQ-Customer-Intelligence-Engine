@@ -10,11 +10,13 @@ token.json
 
 # 2. Guidelines, Temporary & Working Documents
 gudielines/
+study_pack/
 *.docx
 *.pptx
 *.pdf
 ~*.tmp
 ~$*.docx
+
 
 # 3. Heavy Media & Videos
 *.mp4
