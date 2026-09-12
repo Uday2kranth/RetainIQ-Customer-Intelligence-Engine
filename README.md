@@ -1,36 +1,36 @@
 # RetainIQ: Customer Intelligence & Automated Churn Prevention Engine
 
-> **End-to-End Enterprise MLOps Pipeline, Behavioral RFM Loyalty Segmentation, and Automated Real-Time Retention Operations.**
+> **Autonomous End-to-End MLOps Pipeline, Behavioral RFM Loyalty Segmentation, and Real-Time Retention Operations.**
 
 [![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12-blue?logo=python&logoColor=white)](https://www.python.org/)
 [![Scikit-Learn](https://img.shields.io/badge/ML-Random%20Forest%20(81.8%25%20Acc%20%7C%200.86%20AUC)-orange?logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
 [![Apache Airflow](https://img.shields.io/badge/Orchestration-Apache%20Airflow%202.x-teal?logo=apacheairflow&logoColor=white)](https://airflow.apache.org/)
-[![Streamlit](https://img.shields.io/badge/Operations%20Hub-Streamlit-red?logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![Streamlit](https://img.shields.io/badge/Operations%20Console-Streamlit-red?logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![Power BI](https://img.shields.io/badge/Control%20Tower-Microsoft%20Power%20BI-yellow?logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
-## 🎯 Executive Overview & Business Value
+## 🎯 Executive Overview
 
-In high-growth digital retail and e-commerce, customer retention is the primary determinant of long-term unit economics:
+In digital retail and e-commerce, retaining existing customers is vastly more profitable than acquiring new ones:
 * **The 5x–7x Economic Reality**: Acquiring a new customer costs **5 to 7 times more** than retaining an existing one. A modest 5% increase in customer retention can boost corporate profits by **25% to 95%**.
-* **The Traditional Bottleneck**: Legacy systems rely on reactive monthly or weekly CSV spreadsheet exports. Companies discover customer churn only after contracts are canceled, revenue is lost, and outreach is too late.
-* **The RetainIQ Solution**: RetainIQ transitions organizations from *reactive churn discovery* to **autonomous, daily retention intervention**. The platform ingests fresh transactions, scores behavioral loyalty, runs continuous machine learning inference, and dispatches prioritized customer rescue queues to sales managers within 24 hours.
+* **The Industry Bottleneck**: Traditional enterprise systems address customer churn reactively—relying on delayed monthly or weekly spreadsheets that discover customer attrition only after revenue has already evaporated.
+* **The RetainIQ Solution**: RetainIQ transitions businesses from *reactive churn discovery* to **autonomous, daily retention intervention**. The engine ingests fresh transactions into SQL, computes behavioral RFM loyalty scores, scores continuous attrition risk via a tuned Random Forest model, and dispatches automated priority action playbooks to sales managers within 24 hours.
 
 | Dimension | Traditional Legacy Approach | RetainIQ Modern Engine |
 | :--- | :--- | :--- |
 | **Ingestion** | Monthly manual CSV dumps prone to human delay. | Autonomous daily batch ingestion into relational SQL. |
 | **Customer Scoring** | Static spreadsheets with zero behavioral weighting. | Statistical RFM Quintile Modeling (11 loyalty personas). |
 | **Churn Prediction** | Reactive: Discovered after revenue loss. | Proactive: Tuned Random Forest (81.8% Acc, 0.86 ROC-AUC). |
-| **Decision Threshold** | Arbitrary 50% cutoff (high false-alarm rate). | High-ROI $\ge 80\%$ Crisis Cutoff isolating 339 top accounts. |
-| **Alerting** | Ad-hoc emails sent manually days later. | Automated priority HTML report dispatched via Gmail OAuth within 24h. |
+| **Decision Cutoff** | Arbitrary 50% cutoff (high false-alarm rate). | High-ROI $\ge 80\%$ Crisis Threshold isolating top accounts. |
+| **Alerting** | Ad-hoc emails sent manually days or weeks later. | Automated priority HTML report dispatched via Gmail OAuth within 24h. |
 | **Orchestration** | Brittle cron scripts with no retry logic. | Apache Airflow 2.x TaskFlow DAG with exponential backoff. |
-| **BI Reporting** | Heavy database queries causing table lockups. | Decoupled CSV analytical data mart (sub-second refresh). |
+| **BI Reporting** | Heavy database queries causing table locks. | Decoupled CSV analytical data mart (sub-second refresh). |
 
 ---
 
-## 🏗️ System Architecture & Execution Flow
+## 🏗️ System Architecture & Pipeline Flow
 
 RetainIQ executes an automated 5-stage sequential workflow engineered for high throughput and complete task isolation:
 
@@ -41,7 +41,7 @@ flowchart LR
     C --> D[4. Gmail OAuth Alert\nDaily HTML Dispatch]
     D --> E[5. Power BI Sync\nDecoupled CSV Marts]
     
-    subgraph UI & Analytics
+    subgraph Analytics & Interfaces
     E --> F[Streamlit Operations Console]
     E --> G[Power BI Control Tower]
     end
@@ -180,12 +180,10 @@ RetainIQ-Customer-Intelligence-Engine/
 
 ---
 
-## 👥 Academic & Project Attribution
+## 👤 Author
 
-* **Lead Analytics Architect & Developer**: **Pendyala Uday Kranth**
-* **Cohort Program**: Batch G1 — Data Analytics
-* **Project Mentorship**: **Nithyasri kannathal EL** (Senior Product Engineer, Espergroup)
-* **Institution / Organization**: **SURE Trust ProEd** *(formerly SURE Trust)*
+* **Pendyala Uday Kranth** — *Data Analytics & MLOps Engineer*
+* **GitHub**: [@Uday2kranth](https://github.com/Uday2kranth)
 * **Live Study Pack & Documentation Portal**: [https://uday2kranth.github.io/project_details_and_documetation/](https://uday2kranth.github.io/project_details_and_documetation/)
 
 ---
