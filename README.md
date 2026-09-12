@@ -100,8 +100,7 @@ This project is an end-to-end customer intelligence and churn prevention system 
 ## **Learnings from LST and SST**
 
 <!-- add your experiences over here -->
-> _This is a placeholder. Replace the text below with your personal learning from LST and SST sessions summary._
-The LST and PAWR sessions gave me a chance to learn directly from industry professionals and experienced mentors. I learned about communication, problem-solving, teamwork, workplace professionalism, personal branding, presentation, and using AI effectively at work. These sessions helped me understand what is expected in a professional environment, communicate with more confidence, and handle different workplace situations in a better way. Overall, they helped me improve my soft skills and become more prepared for my career.
+> The LST and PAWR sessions gave me a chance to learn directly from industry professionals and experienced mentors. I learned about communication, problem-solving, teamwork, workplace professionalism, personal branding, presentation, and using AI effectively at work. These sessions helped me understand what is expected in a professional environment, communicate with more confidence, and handle different workplace situations in a better way. Overall, they helped me improve my soft skills and become more prepared for my career.
 
 ---
 
