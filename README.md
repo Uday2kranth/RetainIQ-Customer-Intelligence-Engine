@@ -149,7 +149,6 @@ The internship certificate serves as an official acknowledgment of the successfu
 
 ---
 
-## **Acknowledgments**
 
 <!-- you can add Acknowledgments over here in same syntax as below . eg trainer name , company name , role etc -->
 ## **Acknowledgments**
