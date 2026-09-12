@@ -1,0 +1,45 @@
+# ===============================================================================
+# RetainIQ: Git Ignore Rules
+# ===============================================================================
+
+# 1. Security & Credentials (CRITICAL - Never commit secrets)
+credentials.json
+token.json
+.env
+*.env
+
+# 2. Guidelines, Temporary & Working Documents
+gudielines/
+*.docx
+*.pptx
+*.pdf
+~*.tmp
+~$*.docx
+
+# 3. Heavy Media & Videos
+*.mp4
+community servcies/
+
+# 4. Python Environment & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# 5. Local Runtime Databases, Logs & State
+data/*.db
+data/*.sqlite
+data/*.info
+*.log
+data/*.log
+
+# 6. Operating System Artifacts
+.DS_Store
+Thumbs.db
+desktop.ini

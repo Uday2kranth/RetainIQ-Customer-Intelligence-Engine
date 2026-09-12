@@ -1,0 +1,76 @@
+prefered_order_cat,city_tier,preferred_payment_mode,customer_count,churn_count,category_churn_rate_pct,predicted_avg_risk_pct,avg_tenure,complaint_rate_pct,avg_satisfaction
+Fashion,1,COD,37,4,10.81,30.71,8.5,32.4,3.16
+Fashion,1,Credit Card,211,34,16.11,32.59,9.6,29.9,3.27
+Fashion,1,Debit Card,324,33,10.19,28.97,10.2,26.2,3.45
+Fashion,1,E wallet,116,11,9.48,28.75,9.1,21.6,3.34
+Fashion,1,UPI,84,10,11.9,30.45,9.5,17.9,3.25
+Fashion,2,COD,8,2,25.0,29.63,16.1,25.0,4.13
+Fashion,2,Credit Card,46,6,13.04,29.75,10.3,30.4,3.28
+Fashion,2,Debit Card,62,6,9.68,31.26,9.2,35.5,3.39
+Fashion,2,E wallet,22,4,18.18,30.35,9.5,13.6,3.59
+Fashion,2,UPI,20,2,10.0,24.75,13.3,25.0,3.4
+Fashion,3,COD,11,2,18.18,42.94,6.5,36.4,3.18
+Fashion,3,Credit Card,68,9,13.24,32.27,8.6,16.2,3.37
+Fashion,3,Debit Card,103,16,15.53,31.53,11.3,19.4,3.27
+Fashion,3,E wallet,35,4,11.43,32.64,10.1,37.1,3.71
+Fashion,3,UPI,23,2,8.7,25.83,9.0,26.1,3.26
+Grocery,1,COD,25,4,16.0,33.36,8.7,44.0,3.36
+Grocery,1,Credit Card,110,15,13.64,30.47,10.5,20.0,3.42
+Grocery,1,Debit Card,129,10,7.75,26.91,10.4,20.9,3.57
+Grocery,1,E wallet,54,6,11.11,28.02,10.0,29.6,3.07
+Grocery,1,UPI,34,3,8.82,26.73,11.9,50.0,3.53
+Grocery,2,COD,4,2,50.0,64.24,3.0,50.0,3.25
+Grocery,2,Credit Card,23,1,4.35,27.05,9.4,17.4,3.26
+Grocery,2,Debit Card,37,4,10.81,31.09,7.8,27.0,3.49
+Grocery,2,E wallet,12,1,8.33,30.37,7.1,33.3,3.25
+Grocery,2,UPI,13,1,7.69,27.65,8.6,23.1,2.92
+Grocery,3,COD,7,0,0.0,27.6,4.9,28.6,3.14
+Grocery,3,Credit Card,38,8,21.05,39.26,8.6,28.9,3.21
+Grocery,3,Debit Card,47,11,23.4,37.15,9.0,19.1,3.23
+Grocery,3,E wallet,17,7,41.18,44.68,7.9,23.5,3.29
+Grocery,3,UPI,10,2,20.0,35.94,12.6,50.0,3.2
+Laptop & Accessory,1,COD,68,8,11.76,29.1,10.2,30.9,3.21
+Laptop & Accessory,1,Credit Card,414,52,12.56,32.97,10.1,32.6,3.26
+Laptop & Accessory,1,Debit Card,576,86,14.93,31.86,9.8,29.0,3.25
+Laptop & Accessory,1,E wallet,198,25,12.63,30.32,10.9,27.8,3.52
+Laptop & Accessory,1,UPI,131,16,12.21,30.14,9.9,23.7,3.19
+Laptop & Accessory,2,COD,18,2,11.11,30.31,10.4,16.7,3.17
+Laptop & Accessory,2,Credit Card,89,13,14.61,35.11,8.0,30.3,3.1
+Laptop & Accessory,2,Debit Card,110,16,14.55,34.13,9.2,30.0,3.42
+Laptop & Accessory,2,E wallet,45,2,4.44,26.81,10.7,13.3,3.4
+Laptop & Accessory,2,UPI,26,5,19.23,36.52,10.6,46.2,3.46
+Laptop & Accessory,3,COD,14,2,14.29,33.85,10.9,7.1,3.21
+Laptop & Accessory,3,Credit Card,134,23,17.16,33.82,10.2,23.1,3.37
+Laptop & Accessory,3,Debit Card,179,39,21.79,37.81,9.8,30.2,3.09
+Laptop & Accessory,3,E wallet,62,9,14.52,34.02,9.6,30.6,3.4
+Laptop & Accessory,3,UPI,39,5,12.82,35.68,7.4,35.9,3.03
+Mobile Phone,1,COD,47,6,12.77,30.08,11.0,29.8,3.34
+Mobile Phone,1,Credit Card,297,45,15.15,31.18,9.5,23.6,3.3
+Mobile Phone,1,Debit Card,364,49,13.46,30.96,10.1,26.4,3.32
+Mobile Phone,1,E wallet,133,21,15.79,31.41,9.8,27.1,3.33
+Mobile Phone,1,UPI,95,13,13.68,30.06,9.0,27.4,3.17
+Mobile Phone,2,COD,15,1,6.67,28.66,11.8,33.3,3.4
+Mobile Phone,2,Credit Card,67,8,11.94,31.82,9.3,28.4,3.15
+Mobile Phone,2,Debit Card,84,7,8.33,29.1,9.7,16.7,3.38
+Mobile Phone,2,E wallet,29,4,13.79,26.4,10.4,24.1,3.62
+Mobile Phone,2,UPI,28,1,3.57,25.51,9.4,21.4,3.29
+Mobile Phone,3,COD,9,0,0.0,25.58,12.3,0.0,3.11
+Mobile Phone,3,Credit Card,88,17,19.32,35.57,9.4,33.0,3.28
+Mobile Phone,3,Debit Card,122,16,13.11,33.4,9.0,22.1,3.16
+Mobile Phone,3,E wallet,45,4,8.89,28.71,9.9,28.9,3.29
+Mobile Phone,3,UPI,27,4,14.81,32.18,9.8,22.2,3.19
+Others,1,COD,15,0,0.0,25.77,7.0,20.0,3.13
+Others,1,Credit Card,69,12,17.39,36.61,10.0,40.6,3.32
+Others,1,Debit Card,101,17,16.83,35.59,10.0,28.7,3.25
+Others,1,E wallet,37,5,13.51,31.24,9.1,27.0,3.38
+Others,1,UPI,21,2,9.52,28.7,8.2,33.3,3.48
+Others,2,COD,2,0,0.0,29.31,3.5,50.0,4.0
+Others,2,Credit Card,20,4,20.0,33.0,13.2,45.0,2.65
+Others,2,Debit Card,20,2,10.0,27.4,11.2,25.0,3.2
+Others,2,E wallet,12,2,16.67,35.7,12.1,41.7,3.33
+Others,2,UPI,7,1,14.29,18.16,11.4,14.3,3.57
+Others,3,COD,3,1,33.33,37.62,7.0,33.3,3.0
+Others,3,Credit Card,18,4,22.22,40.71,11.2,33.3,2.78
+Others,3,Debit Card,35,8,22.86,38.68,10.4,17.1,3.23
+Others,3,E wallet,10,1,10.0,36.71,10.2,40.0,2.5
+Others,3,UPI,12,0,0.0,25.52,11.5,16.7,3.5

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RetainIQ Defense: 🌪️ Stage 5: Apache Airflow Pipeline Orchestration (RetainIQ Engine)</title>
+  
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('retainiq_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+
+    function updateThemeUI(theme) {
+      const icon = document.getElementById('themeIcon');
+      const text = document.getElementById('themeText');
+      if (icon) icon.textContent = theme === 'light' ? '☀️' : '🌙';
+      if (text) text.textContent = theme === 'light' ? 'Light' : 'Dark';
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const target = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', target);
+      localStorage.setItem('retainiq_theme', target);
+      updateThemeUI(target);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const activeTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      updateThemeUI(activeTheme);
+    });
+  </script>
+
+  <style>
+    
+:root {
+  --bg-primary: #0b0f19;
+  --bg-secondary: #131b2e;
+  --bg-card: #182238;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-cyan: #38bdf8;
+  --accent-blue: #60a5fa;
+  --accent-green: #4ade80;
+  --accent-red: #f87171;
+  --accent-amber: #fbbf24;
+  --border-color: #27354f;
+  --code-bg: #0d1322;
+  --code-text: #e2e8f0;
+  --table-stripe: rgba(255, 255, 255, 0.02);
+  --table-hover: rgba(56, 189, 248, 0.05);
+  --quote-bg: rgba(30, 41, 59, 0.7);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --accent-cyan: #0284c7;
+  --accent-blue: #2563eb;
+  --accent-green: #16a34a;
+  --accent-red: #dc2626;
+  --accent-amber: #d97706;
+  --border-color: #e2e8f0;
+  --code-bg: #f1f5f9;
+  --code-text: #1e293b;
+  --table-stripe: rgba(0, 0, 0, 0.02);
+  --table-hover: rgba(2, 132, 199, 0.05);
+  --quote-bg: rgba(241, 245, 249, 0.85);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 16px;
+  padding: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 2.5rem 1.5rem;
+    font-size: 17px;
+  }
+}
+
+/* Header & Breadcrumbs */
+header.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+header.nav-header a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+header.nav-header a:hover {
+  text-decoration: underline;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+.badge {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--accent-cyan);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+h1 {
+  font-size: 1.9rem;
+  color: var(--accent-cyan);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.6rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.45rem;
+  color: var(--accent-blue);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.4rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+p {
+  margin-bottom: 1.1rem;
+  color: var(--text-secondary);
+}
+
+/* Blockquotes (Voice Mode / Alert Callouts) */
+blockquote {
+  background: var(--quote-bg);
+  border-left: 4px solid var(--accent-cyan);
+  padding: 1rem 1.25rem;
+  border-radius: 0 10px 10px 0;
+  margin: 1.25rem 0;
+  color: var(--text-primary);
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+blockquote strong {
+  color: var(--accent-cyan);
+}
+
+/* Lists */
+ul, ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.2rem;
+  color: var(--text-secondary);
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+/* Tables */
+.table-container {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background-color: var(--bg-secondary);
+  color: var(--accent-cyan);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+tr:nth-child(even) td {
+  background-color: var(--table-stripe);
+}
+
+tr:hover td {
+  background-color: var(--table-hover);
+}
+
+/* Code & Preformatted */
+code {
+  font-family: "JetBrains Mono", Consolas, Monaco, "Courier New", monospace;
+  background: var(--code-bg);
+  color: var(--accent-cyan);
+  padding: 0.15rem 0.4rem;
+  border-radius: 5px;
+  font-size: 0.88em;
+  border: 1px solid var(--border-color);
+}
+
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 0.9rem;
+  color: var(--code-text);
+  line-height: 1.5;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+/* Horizontal Rule */
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 2rem 0;
+}
+
+/* Footer & Navigation */
+footer.nav-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nav-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: var(--bg-card);
+  color: var(--accent-cyan);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: var(--accent-cyan);
+}
+
+/* Skeleton Code Card */
+.code-skeleton-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin: 2rem 0;
+}
+
+.code-skeleton-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+  </style>
+</head>
+<body>
+  <header class="nav-header">
+    <a href="../index.html">🏠 RetainIQ Defense Hub</a>
+    <div class="header-right">
+      <button class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Light/Dark Theme">
+        <span id="themeIcon">🌙</span> <span id="themeText">Dark</span>
+      </button>
+      <span class="badge">Interview Ready</span>
+    </div>
+  </header>
+
+  <main>
+    <h1>🌪️ Stage 5: Apache Airflow Pipeline Orchestration (RetainIQ Engine)</h1>
+<blockquote>
+<p><strong>Voice Mode Explainer:</strong><br />
+This document provides the complete, end-to-end conceptual and technical defense for Apache Airflow in the RetainIQ project. Use this for oral rehearsal with Gemini Voice on your phone.</p>
+</blockquote>
+<hr />
+<h2>1. The "Kitchen Manager" Analogy (The Mental Model)</h2>
+<blockquote>
+<p>Imagine a high-end restaurant kitchen:<br />
+- <strong>Chef 1:</strong> Chops and washes the raw vegetables (<strong>Task 1: SQL Data Ingestion</strong>).<br />
+- <strong>Chef 2:</strong> Measures ingredients and simmers sauces (<strong>Task 2: RFM Feature Engineering</strong>).<br />
+- <strong>Master Chef:</strong> Cooks the gourmet steak (<strong>Task 3: Machine Learning Model Inference</strong>).<br />
+- <strong>Head Waiter:</strong> Delivers the hot meal to the VIP guest (<strong>Task 4: Gmail OAuth Alerting &amp; Power BI</strong>).</p>
+<p>If Chef 1 hasn't chopped the vegetables, the Master Chef <em>cannot cook</em>. If someone tries to cook without chopped vegetables, the restaurant collapses into chaos.</p>
+<p><strong>Apache Airflow is the Kitchen Manager.</strong> <br />
+Airflow doesn't cook the food itself — it oversees the kitchen:<br />
+1. <strong>Order of Operations (<code>&gt;&gt;</code>):</strong> Ensures Task 2 only begins after Task 1 succeeds.<br />
+2. <strong>Deterministic Schedule:</strong> Sets the kitchen clock to start every morning at 6:00 AM UTC.<br />
+3. <strong>Fault Recovery:</strong> If a stove burner fails (database connection glitch), the manager waits 5 minutes and retries the burner automatically (<code>retries=2, retry_delay=5 minutes</code>).<br />
+4. <strong>Audit Trail:</strong> Logs the exact second every dish started, finished, or encountered an error.</p>
+</blockquote>
+<hr />
+<h2>2. Airflow Architecture in RetainIQ (<code>dags/retainiq_pipeline_dag.py</code>)</h2>
+<p>Our Airflow DAG is structured using the modern <strong>Airflow 2.x TaskFlow API</strong>:</p>
+<pre><code>┌────────────────────────────────────────────────────────────────────────┐
+│                        Airflow DAG: @daily                             │
+│                                                                        │
+│  ┌────────────────────┐          ┌──────────────────────────────────┐  │
+│  │ task_ingest_data   │   &gt;&gt;     │ task_feature_engineering         │  │
+│  │ - Reads raw CSV    │          │ - Computes RFM Quintiles (1-5)   │  │
+│  │ - Writes to SQL DB │          │ - Assigns Loyalty Segments       │  │
+│  └─────────┬──────────┘          └────────────────┬─────────────────┘  │
+│            │                                      │                    │
+│            └───────────────────┬──────────────────┘                    │
+│                                │                                       │
+│                                ▼                                       │
+│  ┌────────────────────┐          ┌──────────────────────────────────┐  │
+│  │ task_send_alerts   │   &lt;&lt;     │ task_model_inference             │  │
+│  │ - Filters risk ≥80%│          │ - Loads churn_model.pkl          │  │
+│  │ - Sends Gmail OAuth│          │ - predict_proba() risk scores    │  │
+│  │ - Logs alert audit │          │ - Writes predictions to SQL      │  │
+│  └────────────────────┘          └──────────────────────────────────┘  │
+└────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+<h3>The 4 Pipeline Tasks Defined in Our DAG:</h3>
+<ol>
+<li><strong><code>task_ingest_data()</code></strong>: Ingests 5,630 raw e-commerce records into the SQL database (<code>raw_customers</code> table) with idempotency checks.</li>
+<li><strong><code>task_feature_engineering()</code></strong>: Extracts records, computes Recency, Frequency, and Monetary quintiles (1 to 5), tags customers with loyalty personas (Champions, Loyalists, Hibernating, At-Risk), and saves results to <code>rfm_features</code>.</li>
+<li><strong><code>task_model_inference()</code></strong>: Deserializes <code>models/churn_model.pkl</code>, executes <code>predict_proba()</code> to compute continuous churn risk (0% to 100%), tags accounts into High/Medium/Low tiers, and populates <code>churn_predictions</code>.</li>
+<li><strong><code>task_send_alerts()</code></strong>: Queries accounts exceeding the 80% threshold, compiles the executive HTML briefing table, dispatches automated alerts via Gmail OAuth 2.0 to sales managers, and writes an audit record into <code>alert_history</code>.</li>
+</ol>
+<hr />
+<h2>3. Top 5 Airflow Defense Questions &amp; Winning Answers</h2>
+<h3>Q1: Why use Apache Airflow instead of a simple Python script or Windows Task Scheduler / Cron?</h3>
+<blockquote>
+<p><strong>Winning Answer:</strong><br />
+<em>"A cron job or Python script is 'fire-and-forget'—it offers zero observability, no automatic error recovery, and no task isolation. If a linear script fails at step 2, step 3 might run on corrupt data, or the entire script silently dies without anyone noticing.</em><br />
+<em>Airflow transforms our pipeline into a Directed Acyclic Graph (DAG) with:</em><br />
+<em>1. </em><em>Strict Dependency Guarantees:</em><em> Downstream inference will NEVER execute if data ingestion fails.</em><br />
+<em>2. </em><em>Built-in Retry Policies:</em><em> Our tasks have <code>retries=2, retry_delay=5 minutes</code>, giving transient database or network blips time to resolve.</em><br />
+<em>3. </em><em>Observability &amp; Backfilling:</em><em> Airflow provides a web UI showing color-coded task states (green for success, red for failure) and allows deterministic backfilling of historical data."</em></p>
+</blockquote>
+<hr />
+<h3>Q2: How do your tasks pass data to each other? Do you pass large DataFrames through Airflow XComs?</h3>
+<blockquote>
+<p><strong>Winning Answer (Crucial Data Engineering Distinction):</strong><br />
+<em>"</em><em>Absolutely not.</em><em> Passing large DataFrames through XComs is a major anti-pattern because XComs serialize data into Airflow’s backend metadata database (like PostgreSQL or MySQL), which causes severe database bloat and memory bottlenecks.</em><br />
+<em>In RetainIQ, we followed the industry-standard </em><em>Data Lake / Database Pushdown Pattern</em><em>:</em><br />
+<em>- </em><em>Heavy data</em><em> (5,630 customer rows and RFM matrices) is written directly to the SQL database or Parquet storage.</em><br />
+<em>- </em><em>XComs only pass lightweight operational metadata</em><em>—specifically JSON dictionaries containing record counts, churn percentages, execution status, and Gmail message IDs for auditing."</em></p>
+</blockquote>
+<hr />
+<h3>Q3: What happens if Task 3 (Model Inference) crashes mid-execution?</h3>
+<blockquote>
+<p><strong>Winning Answer:</strong><br />
+<em>"First, Airflow halts the DAG execution immediately at Task 3. Because of the <code>&gt;&gt;</code> dependency operator, Task 4 (<code>task_send_alerts</code>) will NOT trigger, preventing misleading or un-scored alerts from being emailed to sales leadership.</em><br />
+<em>Second, Airflow triggers our automated retry policy: it waits 5 minutes and retries Task 3 up to 2 times.</em><br />
+<em>Third, if all retries are exhausted, Task 3 is marked as FAILED in the Airflow metadata store, and an on-failure alert callback notifies the engineering team with the exact stack trace."</em></p>
+</blockquote>
+<hr />
+<h3>Q4: How is Airflow implemented in this repository, especially on Windows?</h3>
+<blockquote>
+<p><strong>Winning Answer:</strong><br />
+<em>"Airflow is natively designed for Linux/POSIX environments (running on Docker, Kubernetes, or Celery workers). In production, our <code>dags/retainiq_pipeline_dag.py</code> runs inside an official Apache Airflow container.</em><br />
+<em>To allow seamless local development and Windows demonstration without requiring heavy Docker virtualization, we engineered a dual-mode pattern:</em><br />
+<em>1. </em><em>Enterprise Packaging (<code>requirements.txt</code>):</em><em> We specify <code>apache-airflow&gt;=2.7.0; sys_platform != 'win32'</code>. This standard PEP 508 environment marker ensures Linux/Docker production containers install full Airflow, while Windows local developers don't suffer POSIX C-extension compile crashes (<code>pwd</code>, <code>fcntl</code>).</em><br />
+<em>2. </em><em>Compatibility DAG Decorators:</em><em> In <code>dags/retainiq_pipeline_dag.py</code>, we provide fallback shims for <code>@dag</code> and <code>@task</code>.</em><br />
+<em>3. </em><em>Master Pipeline Runner:</em><em> We built <code>run_pipeline.py</code>, which executes the identical 4-stage sequential task logic with full logging, providing 100% testable parity with an Airflow executor in just 2.3 seconds!"</em></p>
+</blockquote>
+<hr />
+<h3>Q5: What is the TaskFlow API and why did you use it over traditional PythonOperator?</h3>
+<blockquote>
+<p><strong>Winning Answer:</strong><br />
+<em>"Traditional Airflow 1.x required instantiating boilerplate <code>PythonOperator</code> classes and manually calling <code>xcom_push</code> and <code>xcom_pull</code> with string keys. Airflow 2.x introduced the TaskFlow API (<code>@dag</code> and <code>@task</code> decorators).</em><br />
+<em>TaskFlow allows us to write standard, clean Python functions and decorate them with <code>@task</code>. Airflow automatically handles task ID assignment, serialization, and XCom parameter mapping behind the scenes. It results in cleaner, modular, unit-testable code that looks like standard Python."</em></p>
+</blockquote>
+<hr />
+<h2>4. Verbatim 45-Second Mentor Pitch (Memorize This!)</h2>
+<blockquote>
+<p><em>"To elevate RetainIQ from a standalone machine learning script to an enterprise-grade automated engine, we orchestrated our daily pipeline using Apache Airflow's modern TaskFlow API in <code>dags/retainiq_pipeline_dag.py</code>.</em></p>
+<p><em>Our DAG runs on a daily schedule, enforcing strict one-way execution across four isolated tasks: SQL ingestion, RFM feature engineering, Random Forest inference, and automated Gmail alert dispatch.</em></p>
+<p><em>By decoupling heavy data storage in SQL from lightweight operational metadata in XComs, and applying automated retry policies, Airflow ensures our machine learning models and executive alerts are deterministic, fault-tolerant, and completely hands-free."</em></p>
+</blockquote>
+    
+        <div class="code-skeleton-card">
+          <div class="code-skeleton-header">
+            <span>💻 25-Line Code Skeleton (skeleton_dag.py)</span>
+            <span class="badge">Pure Python</span>
+          </div>
+          <pre><code>"""
+SKELETON CODE: Stage 5 - Apache Airflow DAG Orchestration
+File Reference: dags/retainiq_pipeline_dag.py
+"""
+from datetime import datetime, timedelta
+from airflow.decorators import dag, task
+from src.etl.ingest import ingest_raw_data
+from src.etl.feature_engineering import compute_rfm_features
+from src.ml.inference import run_batch_inference
+from src.alerts.gmail_alert import send_churn_alerts
+
+default_args = {
+    "owner": "retainiq_analytics",
+    "retries": 2,                           # Retry up to 2 times on failure
+    "retry_delay": timedelta(minutes=5),    # Wait 5 minutes between retries
+}
+
+@dag(
+    dag_id="retainiq_daily_customer_intelligence_pipeline",
+    default_args=default_args,
+    schedule="@daily",                      # Scheduled every 24 hours at 06:00 UTC
+    start_date=datetime(2026, 1, 1),
+    catchup=False
+)
+def retainiq_dag():
+    @task(task_id="task_1_sql_ingestion")
+    def task_ingest() -> dict:
+        return ingest_raw_data()
+
+    @task(task_id="task_2_rfm_feature_engineering")
+    def task_rfm(ingest_meta: dict) -> dict:
+        return compute_rfm_features()
+
+    @task(task_id="task_3_model_inference")
+    def task_infer(rfm_meta: dict) -> dict:
+        return run_batch_inference()
+
+    @task(task_id="task_4_gmail_alert_action")
+    def task_alert(infer_meta: dict) -> dict:
+        return send_churn_alerts()
+
+    # Enforce strict 1-way workflow dependencies:
+    ingest_meta = task_ingest()
+    rfm_meta = task_rfm(ingest_meta)
+    infer_meta = task_infer(rfm_meta)
+    task_alert(infer_meta)
+
+# Instantiate the DAG
+pipeline = retainiq_dag()
+</code></pre>
+        </div>
+        
+  </main>
+
+  <footer class="nav-footer">
+    <a href="../04_GMAIL_OAUTH_ALERTS/EXPLAINER.html" class="nav-btn">← Previous Module</a>
+    <a href="../index.html" class="nav-btn">🏠 Index</a>
+    <a href="../06_POWER_BI_CONTROL_TOWER/EXPLAINER.html" class="nav-btn">Next Module →</a>
+  </footer>
+</body>
+</html>

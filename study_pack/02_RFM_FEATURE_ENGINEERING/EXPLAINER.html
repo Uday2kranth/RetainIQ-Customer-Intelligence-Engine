@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RetainIQ Defense: 📊 Stage 2: RFM Feature Engineering</title>
+  
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('retainiq_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+
+    function updateThemeUI(theme) {
+      const icon = document.getElementById('themeIcon');
+      const text = document.getElementById('themeText');
+      if (icon) icon.textContent = theme === 'light' ? '☀️' : '🌙';
+      if (text) text.textContent = theme === 'light' ? 'Light' : 'Dark';
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const target = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', target);
+      localStorage.setItem('retainiq_theme', target);
+      updateThemeUI(target);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const activeTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      updateThemeUI(activeTheme);
+    });
+  </script>
+
+  <style>
+    
+:root {
+  --bg-primary: #0b0f19;
+  --bg-secondary: #131b2e;
+  --bg-card: #182238;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-cyan: #38bdf8;
+  --accent-blue: #60a5fa;
+  --accent-green: #4ade80;
+  --accent-red: #f87171;
+  --accent-amber: #fbbf24;
+  --border-color: #27354f;
+  --code-bg: #0d1322;
+  --code-text: #e2e8f0;
+  --table-stripe: rgba(255, 255, 255, 0.02);
+  --table-hover: rgba(56, 189, 248, 0.05);
+  --quote-bg: rgba(30, 41, 59, 0.7);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --accent-cyan: #0284c7;
+  --accent-blue: #2563eb;
+  --accent-green: #16a34a;
+  --accent-red: #dc2626;
+  --accent-amber: #d97706;
+  --border-color: #e2e8f0;
+  --code-bg: #f1f5f9;
+  --code-text: #1e293b;
+  --table-stripe: rgba(0, 0, 0, 0.02);
+  --table-hover: rgba(2, 132, 199, 0.05);
+  --quote-bg: rgba(241, 245, 249, 0.85);
+  --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 16px;
+  padding: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 2.5rem 1.5rem;
+    font-size: 17px;
+  }
+}
+
+/* Header & Breadcrumbs */
+header.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+header.nav-header a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+header.nav-header a:hover {
+  text-decoration: underline;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+.badge {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--accent-cyan);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+h1 {
+  font-size: 1.9rem;
+  color: var(--accent-cyan);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.6rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.45rem;
+  color: var(--accent-blue);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.4rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+p {
+  margin-bottom: 1.1rem;
+  color: var(--text-secondary);
+}
+
+/* Blockquotes (Voice Mode / Alert Callouts) */
+blockquote {
+  background: var(--quote-bg);
+  border-left: 4px solid var(--accent-cyan);
+  padding: 1rem 1.25rem;
+  border-radius: 0 10px 10px 0;
+  margin: 1.25rem 0;
+  color: var(--text-primary);
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+blockquote strong {
+  color: var(--accent-cyan);
+}
+
+/* Lists */
+ul, ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.2rem;
+  color: var(--text-secondary);
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+/* Tables */
+.table-container {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  background-color: var(--bg-secondary);
+  color: var(--accent-cyan);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+tr:nth-child(even) td {
+  background-color: var(--table-stripe);
+}
+
+tr:hover td {
+  background-color: var(--table-hover);
+}
+
+/* Code & Preformatted */
+code {
+  font-family: "JetBrains Mono", Consolas, Monaco, "Courier New", monospace;
+  background: var(--code-bg);
+  color: var(--accent-cyan);
+  padding: 0.15rem 0.4rem;
+  border-radius: 5px;
+  font-size: 0.88em;
+  border: 1px solid var(--border-color);
+}
+
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 0.9rem;
+  color: var(--code-text);
+  line-height: 1.5;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+/* Horizontal Rule */
+hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 2rem 0;
+}
+
+/* Footer & Navigation */
+footer.nav-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.nav-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: var(--bg-card);
+  color: var(--accent-cyan);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: var(--accent-cyan);
+}
+
+/* Skeleton Code Card */
+.code-skeleton-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin: 2rem 0;
+}
+
+.code-skeleton-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+  </style>
+</head>
+<body>
+  <header class="nav-header">
+    <a href="../index.html">🏠 RetainIQ Defense Hub</a>
+    <div class="header-right">
+      <button class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Light/Dark Theme">
+        <span id="themeIcon">🌙</span> <span id="themeText">Dark</span>
+      </button>
+      <span class="badge">Interview Ready</span>
+    </div>
+  </header>
+
+  <main>
+    <h1>📊 Stage 2: RFM Feature Engineering</h1>
+<blockquote>
+<p><strong>Voice Mode Explainer:</strong><br />
+This stage transforms static transactional numbers into behavioral customer intelligence using Recency, Frequency, and Monetary (RFM) quintile segmentation.</p>
+</blockquote>
+<hr />
+<h2>1. What Happens at This Stage?</h2>
+<ol>
+<li><strong>Reads from SQL:</strong> Pulls raw customer records from <code>raw_customers</code>.</li>
+<li><strong>Computes RFM Scores:</strong> Calculates:</li>
+<li><strong>R (Recency):</strong> Days since the last order (<code>day_since_last_order</code>). Lower is better!</li>
+<li><strong>F (Frequency):</strong> Total number of orders placed (<code>order_count</code>). Higher is better!</li>
+<li><strong>M (Monetary / Value):</strong> Total cashback incentive received (<code>cashback_amount</code>). Higher is better!</li>
+<li><strong>Applies Quintile Binning (<code>pd.qcut</code>):</strong> Ranks each customer from 1 (lowest) to 5 (highest) relative to all other customers.</li>
+<li><strong>Assigns Behavioral Segments:</strong> Maps combined RFM scores into actionable marketing segments:</li>
+<li><strong>Champions (Score 5-5):</strong> Highest loyalty, high spending, recent activity.</li>
+<li><strong>Loyal Customers:</strong> Frequent buyers with strong history.</li>
+<li><strong>At Risk:</strong> Previously high frequency, but haven't bought in a long time!</li>
+<li><strong>Hibernating:</strong> Low recency, low frequency, low engagement.</li>
+<li><strong>Promising / Need Attention:</strong> Moderate activity requiring targeted discounts.</li>
+<li><strong>Persists Features:</strong> Writes the segmentations back into SQLite table <code>rfm_features</code> and saves <code>data/processed/rfm_features.parquet</code>.</li>
+</ol>
+<hr />
+<h2>2. Key Engineering Decisions &amp; Why We Made Them</h2>
+<h3>Why Not Just Use Raw Order Numbers?</h3>
+<ul>
+<li><strong>Raw Numbers Lack Context:</strong> A customer who placed 10 orders two years ago is completely different from a customer who placed 10 orders this past month.</li>
+<li><strong>Quintile Normalization:</strong> Using Pandas <code>pd.qcut()</code> eliminates outlier skew and normalizes behavioral metrics into uniform 1–5 scores.</li>
+<li><strong>Strong ML Signal:</strong> RFM segments give our Random Forest model strong categorical signals regarding changes in customer velocity before churn occurs.</li>
+</ul>
+<hr />
+<h2>3. What to Say to Your Mentor (30 Seconds)</h2>
+<blockquote>
+<p><em>"In Stage 2, our feature engineering pipeline transforms raw transactional attributes into behavioral intelligence using RFM analysis.</em></p>
+<p><em>Using Pandas quintile binning (<code>pd.qcut</code>), we score every customer from 1 to 5 across Recency, Frequency, and Monetary dimensions. This segments our customer base into behavioral tiers such as Champions, Loyalists, and At-Risk accounts.</em></p>
+<p><em>By capturing the velocity of customer engagement rather than static order counts, we provide our machine learning model with critical early-warning indicators of churn."</em></p>
+</blockquote>
+    
+        <div class="code-skeleton-card">
+          <div class="code-skeleton-header">
+            <span>💻 25-Line Code Skeleton (skeleton_rfm.py)</span>
+            <span class="badge">Pure Python</span>
+          </div>
+          <pre><code>"""
+SKELETON CODE: Stage 2 - RFM Feature Engineering
+File Reference: src/etl/feature_engineering.py
+"""
+import pandas as pd
+from src.db.connection import get_engine
+
+engine = get_engine()
+
+# 1. Load raw customers from SQL
+df = pd.read_sql("SELECT customer_id, day_since_last_order, order_count, cashback_amount FROM raw_customers", con=engine)
+
+# 2. Compute RFM Quintiles (1 to 5) using pd.qcut
+# For Recency: lower days since last order = higher score (5 is best)
+df["r_score"] = pd.qcut(df["day_since_last_order"].rank(method="first"), q=5, labels=[5, 4, 3, 2, 1]).astype(int)
+
+# For Frequency & Monetary: higher count/amount = higher score (5 is best)
+df["f_score"] = pd.qcut(df["order_count"].rank(method="first"), q=5, labels=[1, 2, 3, 4, 5]).astype(int)
+df["m_score"] = pd.qcut(df["cashback_amount"].rank(method="first"), q=5, labels=[1, 2, 3, 4, 5]).astype(int)
+
+# 3. Map RFM scores into business segments
+def assign_segment(row):
+    r, f = row["r_score"], row["f_score"]
+    if r >= 4 and f >= 4:
+        return "Champions"
+    elif r >= 3 and f >= 3:
+        return "Loyal Customers"
+    elif r <= 2 and f >= 3:
+        return "At Risk"
+    elif r <= 2 and f <= 2:
+        return "Hibernating"
+    else:
+        return "Promising"
+
+df["rfm_segment"] = df.apply(assign_segment, axis=1)
+
+# 4. Save back to SQL database
+df.to_sql("rfm_features", con=engine, if_exists="replace", index=False)
+
+print(f"✅ Populated 'rfm_features' table for {len(df)} customers.")
+</code></pre>
+        </div>
+        
+  </main>
+
+  <footer class="nav-footer">
+    <a href="../01_SQL_DATABASE_&_INGESTION/EXPLAINER.html" class="nav-btn">← Previous Module</a>
+    <a href="../index.html" class="nav-btn">🏠 Index</a>
+    <a href="../03_MACHINE_LEARNING_MODEL/EXPLAINER.html" class="nav-btn">Next Module →</a>
+  </footer>
+</body>
+</html>

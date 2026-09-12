@@ -1,0 +1,8 @@
+rfm_segment,segment_size,avg_churn_risk_pct,high_risk_count,avg_recency_days,avg_order_count,avg_cashback
+At Risk,1362,36.33,115,9.6,4.2,177.11
+Champions,352,28.44,10,1.2,4.7,225.66
+Hibernating,374,43.82,54,9.6,1.5,128.29
+Loyal Customers,1685,26.95,58,2.1,4.0,166.28
+Need Attention,255,38.95,31,9.6,2.0,206.7
+Potential Loyalist,1362,28.9,50,1.9,1.5,177.31
+Promising,275,33.62,21,9.9,1.0,207.48

@@ -1,0 +1,2 @@
+total_customers,historical_churned_customers,historical_churn_rate_pct,retention_rate_pct,average_portfolio_risk_pct,high_risk_customers_count,medium_risk_customers_count,low_risk_customers_count,avg_satisfaction_score,avg_cashback_amount
+5665,778,13.73,86.27,31.75,339,599,4727,3.3,176.54

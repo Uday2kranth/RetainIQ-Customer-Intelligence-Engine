@@ -1,0 +1,82 @@
+// ============================================================================
+// RetainIQ Power BI Control Tower: DAX Measures Catalog
+// Copy and paste these measures into Power BI Desktop Model
+// ============================================================================
+
+// 1. Total Active Customers
+Total Customers = 
+COUNTROWS('raw_customers')
+
+
+// 2. Historical Churned Customers
+Churned Customers = 
+CALCULATE(
+    COUNTROWS('raw_customers'),
+    'raw_customers'[churn] = 1
+)
+
+
+// 3. Historical Churn Rate (%)
+Historical Churn Rate % = 
+DIVIDE([Churned Customers], [Total Customers], 0) * 100
+
+
+// 4. Current Retention Rate (%)
+Retention Rate % = 
+100 - [Historical Churn Rate %]
+
+
+// 5. Average Portfolio Churn Risk Score (%)
+Avg Churn Risk % = 
+AVERAGE('churn_predictions'[churn_risk_pct])
+
+
+// 6. High-Risk Customers Count (Risk >= 80%)
+High Risk Customers Count = 
+CALCULATE(
+    COUNTROWS('churn_predictions'),
+    'churn_predictions'[churn_risk_pct] >= 80
+)
+
+
+// 7. Medium-Risk Customers Count (50% <= Risk < 80%)
+Medium Risk Customers Count = 
+CALCULATE(
+    COUNTROWS('churn_predictions'),
+    'churn_predictions'[churn_risk_pct] >= 50 && 'churn_predictions'[churn_risk_pct] < 80
+)
+
+
+// 8. Low-Risk Customers Count (Risk < 50%)
+Low Risk Customers Count = 
+CALCULATE(
+    COUNTROWS('churn_predictions'),
+    'churn_predictions'[churn_risk_pct] < 50
+)
+
+
+// 9. Percentage of Accounts in High-Risk Tier
+High Risk Share % = 
+DIVIDE([High Risk Customers Count], [Total Customers], 0) * 100
+
+
+// 10. Estimated Revenue / Cashback at Risk ($)
+Estimated Revenue at Risk = 
+CALCULATE(
+    SUM('raw_customers'[cashback_amount]),
+    'churn_predictions'[churn_risk_pct] >= 80
+)
+
+
+// 11. Average Satisfaction Score (1 to 5)
+Avg Satisfaction Score = 
+AVERAGE('raw_customers'[satisfaction_score])
+
+
+// 12. Complaint Rate (%)
+Complaint Rate % = 
+DIVIDE(
+    CALCULATE(COUNTROWS('raw_customers'), 'raw_customers'[complain] = 1),
+    [Total Customers],
+    0
+) * 100
