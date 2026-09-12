@@ -184,7 +184,7 @@ RetainIQ-Customer-Intelligence-Engine/
 
 * **Pendyala Uday Kranth** — *Data Analytics & MLOps Engineer*
 * **GitHub**: [@Uday2kranth](https://github.com/Uday2kranth)
-* **Live Study Pack & Documentation Portal**: [https://uday2kranth.github.io/project_details_and_documetation/](https://uday2kranth.github.io/project_details_and_documetation/)
+  
 
 ---
 
